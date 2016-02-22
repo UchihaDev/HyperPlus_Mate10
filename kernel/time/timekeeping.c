@@ -316,10 +316,10 @@ u32 (*arch_gettimeoffset)(void) = default_arch_gettimeoffset;
 static inline u32 arch_gettimeoffset(void) { return 0; }
 #endif
 
-static inline u64 timekeeping_delta_to_ns(struct tk_read_base *tkr,
+static inline s64 timekeeping_delta_to_ns(struct tk_read_base *tkr,
 					  cycle_t delta)
 {
-	u64 nsec;
+	s64 nsec;
 
 	nsec = delta * tkr->mult + tkr->xtime_nsec;
 	nsec >>= tkr->shift;
