@@ -331,3 +331,8 @@ config HUAWEI_SLEEPLOG
     bool "huawei sleeplogcat"
     default n
 	help
+
+config QUICK_THAW_FINGERPRINTD
+	bool "Quickly resume fingerprintd"
+	depends on SUSPEND
+	default n
