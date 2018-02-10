@@ -1,0 +1,417 @@
+
+
+/{
+	cpus {
+		#address-cells = <2>;
+		#size-cells = <0>;
+
+		little0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x0>;
+			clocks = <&clk_cluster0 0>;
+			clock-names = "cpu-cluster.0";
+			enable-method = "psci";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points-v2 = <&cluster0_opp_table>;
+			sched-energy-costs = <&CPU_COST_A53 &CLUSTER_COST_A53>;
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				35694 //509000 kHZ
+				67609 //1018000 kHZ
+				90137 //1210000 kHZ
+				111848 //1402000 kHz
+				129866 //1556000 kHZ
+				148894 //1690000 kHZ
+				169546 //1844000 kHZ
+			>;
+		};
+		little1:cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x1>;
+			clocks = <&clk_cluster0 0>;
+			clock-names = "cpu-cluster.0";
+			enable-method = "psci";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points-v2 = <&cluster0_opp_table>;
+			sched-energy-costs = <&CPU_COST_A53 &CLUSTER_COST_A53>;
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				35694 //509000 kHZ
+				67609 //1018000 kHZ
+				90137 //1210000 kHZ
+				111848 //1402000 kHz
+				129866 //1556000 kHZ
+				148894 //1690000 kHZ
+				169546 //1844000 kHZ
+			>;
+		};
+		little2:cpu@2 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x2>;
+			clocks = <&clk_cluster0 0>;
+			clock-names = "cpu-cluster.0";
+			enable-method = "psci";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points-v2 = <&cluster0_opp_table>;
+			sched-energy-costs = <&CPU_COST_A53 &CLUSTER_COST_A53>;
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				35694 //509000 kHZ
+				67609 //1018000 kHZ
+				90137 //1210000 kHZ
+				111848 //1402000 kHz
+				129866 //1556000 kHZ
+				148894 //1690000 kHZ
+				169546 //1844000 kHZ
+			>;
+		};
+		little3:cpu@3 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x3>;
+			clocks = <&clk_cluster0 0>;
+			clock-names = "cpu-cluster.0";
+			enable-method = "psci";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points-v2 = <&cluster0_opp_table>;
+			sched-energy-costs = <&CPU_COST_A53 &CLUSTER_COST_A53>;
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				35694 //509000 kHZ
+				67609 //1018000 kHZ
+				90137 //1210000 kHZ
+				111848 //1402000 kHz
+				129866 //1556000 kHZ
+				148894 //1690000 kHZ
+				169546 //1844000 kHZ
+			>;
+		};
+
+
+		big0:cpu@100 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x100>;
+			clocks = <&clk_cluster1 0>;
+			clock-names = "cpu-cluster.1";
+			enable-method = "psci";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			operating-points-v2 = <&cluster1_opp_table>;
+			sched-energy-costs = <&CPU_COST_A72 &CLUSTER_COST_A72>;
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				173000 //682000 kHZ
+				251000 //1018000 kHZ
+				319000 //1210000 kHZ
+				380000 //1364000 kHz
+				493000 //1498000 kHZ
+				534000 //1652000 kHZ
+				636000 //1863000 kHZ
+				821000 //2093000 kHZ
+				1068000 //2362000 kHZ
+			>;
+		};
+		big1:cpu@101 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x101>;
+			clocks = <&clk_cluster1 0>;
+			clock-names = "cpu-cluster.1";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			operating-points-v2 = <&cluster1_opp_table>;
+			sched-energy-costs = <&CPU_COST_A72 &CLUSTER_COST_A72>;
+			enable-method = "psci";
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				173000 //682000 kHZ
+				251000 //1018000 kHZ
+				319000 //1210000 kHZ
+				380000 //1364000 kHz
+				493000 //1498000 kHZ
+				534000 //1652000 kHZ
+				636000 //1863000 kHZ
+				821000 //2093000 kHZ
+				1068000 //2362000 kHZ
+			>;
+		};
+		big2:cpu@102 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x102>;
+			clocks = <&clk_cluster1 0>;
+			clock-names = "cpu-cluster.1";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			operating-points-v2 = <&cluster1_opp_table>;
+			sched-energy-costs = <&CPU_COST_A72 &CLUSTER_COST_A72>;
+			enable-method = "psci";
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				173000 //682000 kHZ
+				251000 //1018000 kHZ
+				319000 //1210000 kHZ
+				380000 //1364000 kHz
+				493000 //1498000 kHZ
+				534000 //1652000 kHZ
+				636000 //1863000 kHZ
+				821000 //2093000 kHZ
+				1068000 //2362000 kHZ
+			>;
+		};
+		big3:cpu@103 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x103>;
+			clocks = <&clk_cluster1 0>;
+			clock-names = "cpu-cluster.1";
+			clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			operating-points-v2 = <&cluster1_opp_table>;
+			sched-energy-costs = <&CPU_COST_A72 &CLUSTER_COST_A72>;
+			enable-method = "psci";
+			// The currents(uA) correspond to the frequencies in the frequency table.
+			current = <
+				173000 //682000 kHZ
+				251000 //1018000 kHZ
+				319000 //1210000 kHZ
+				380000 //1364000 kHz
+				493000 //1498000 kHZ
+				534000 //1652000 kHZ
+				636000 //1863000 kHZ
+				821000 //2093000 kHZ
+				1068000 //2362000 kHZ
+			>;
+		};
+
+		cluster0_opp_table: opp_table0 {
+			compatible = "operating-points-v2";
+			opp-shared;
+
+			opp0 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <509000000>;
+				opp-microvolt = <680000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp1 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1018000000>;
+				opp-microvolt = <754000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp2 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1210000000>;
+				opp-microvolt = <850000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp3 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1402000000>;
+				opp-microvolt = <850000>;
+				clock-latency-ns = <2000000>;
+				opp-suspend;
+			};
+			opp4 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1556000000>;
+				opp-microvolt = <950000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp5 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1690000000>;
+				opp-microvolt = <950000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp6 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1844000000>;
+				opp-microvolt = <1050000>;
+				clock-latency-ns = <2000000>;
+			};
+		};
+
+		cluster1_opp_table: opp_table1 {
+			compatible = "operating-points-v2";
+			opp-shared;
+
+			opp0 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <682000000>;
+				opp-microvolt = <680000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp1 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1018000000>;
+				opp-microvolt = <780000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp2 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1210000000>;
+				opp-microvolt = <780000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp3 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1364000000>;
+				opp-microvolt = <780000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp4 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1498000000>;
+				opp-microvolt = <900000>;
+				clock-latency-ns = <2000000>;
+				opp-suspend;
+			};
+			opp5 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1652000000>;
+				opp-microvolt = <900000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp6 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <1863000000>;
+				opp-microvolt = <900000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp7 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <2093000000>;
+				opp-microvolt = <950000>;
+				clock-latency-ns = <2000000>;
+			};
+			opp8 {
+				opp-supported-hw = <0x3>;
+				opp-hz = /bits/ 64 <2362000000>;
+				opp-microvolt = <1050000>;
+				clock-latency-ns = <2000000>;
+			};
+		};
+
+		idle-states {
+			entry-method = "arm,psci";
+
+			CPU_NAP_0: cpu-nap-0 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x0000000>;
+				entry-latency-us = <7>;
+				exit-latency-us = <2>;
+				min-residency-us = <15>;
+			};
+
+			CPU_SLEEP_0: cpu-sleep-0 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x0010000>;
+				entry-latency-us = <40>;
+				exit-latency-us = <70>;
+				min-residency-us = <3000>;
+				local-timer-stop;
+			};
+
+			CLUSTER_SLEEP_0: cluster-sleep-0 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x1010000>;
+				entry-latency-us = <500>;
+				exit-latency-us = <5000>;
+				min-residency-us = <20000>;
+				local-timer-stop;
+			};
+			CLUSTER_SLEEP_1: cluster-sleep-1 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x1010000>;
+				entry-latency-us = <1000>;
+				exit-latency-us = <5000>;
+				min-residency-us = <20000>;
+				local-timer-stop;
+			};
+		};
+
+		cpu-map {
+			cluster0: cluster0 {
+				#cooling-cells = <3>; /* min followed by max */
+				core0 {
+					cpu = <&little0>;
+				};
+				core1 {
+					cpu = <&little1>;
+				};
+				core2 {
+					cpu = <&little2>;
+				};
+				core3 {
+					cpu = <&little3>;
+				};
+			};
+			cluster1: cluster1 {
+				#cooling-cells = <3>; /* min followed by max */
+				core0 {
+					cpu = <&big0>;
+				};
+				core1 {
+					cpu = <&big1>;
+				};
+				core2 {
+					cpu = <&big2>;
+				};
+				core3 {
+					cpu = <&big3>;
+				};
+			};
+		};
+		/include/ "kirin970_sched_energy_cs.dtsi"
+	};
+
+	target-cpu {
+		compatible = "hisi,targetcpu";
+		target_cpu = "Kirin 970";
+	};
+
+	support-target {
+		compatible = "hisi,supportedtarget";
+		support_name = "Kirin 970","Kirin 975";
+		support_value = <2458000>, <1931000>;
+		support_efuse = "false";
+	};
+	idle-sleep {
+		compatible = "hisi,idle-sleep";
+		vote-addr = <0xfff0a410>;
+		status = "ok";
+	};
+	menu-switch {
+		compatible = "hisi,menu-switch";
+		cpu-mask = <0x0>, <0xF0>;
+		switch-profile = <682000>;
+	};
+
+	freq_hw_vote_reg {
+		compatible = "hisi,freq-hw-vote-cpu";
+		vote_channel_num  = <2>;
+		/* vote-reg-info: [type: 0-pmctrl] [vote-reg-offset] [value-mask] [write-mask] [result-reg-offset] [read-mask] */
+		vote_reg_info = <
+			0 0x280 0xFF 0xFF0000 0x2DC 0xFF00 /*ch0*/
+			0 0x270 0xFF 0xFF0000 0x2DC 0xFF   /*ch1*/
+		>;
+	};
+};

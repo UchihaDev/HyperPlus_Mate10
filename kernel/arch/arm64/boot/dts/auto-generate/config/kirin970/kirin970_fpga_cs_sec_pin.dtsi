@@ -1,0 +1,20 @@
+/ {
+    sec_pinmux@e896c800 {
+		gpio014_cfg_func: gpio014_cfg_func {
+                     pinctrl-single,pins = <0x718  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+                     pinctrl-single,slew-rate = <0x0 0x80>;
+		};
+		gpio014_cfg_idle: gpio014_cfg_idle {
+                     pinctrl-single,pins = <0x718  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+                     pinctrl-single,slew-rate = <0x0 0x80>;
+		};
+
+    };
+
+};

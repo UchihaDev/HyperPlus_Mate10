@@ -1,0 +1,25 @@
+#ifndef __DSP_H__
+#define __DSP_H__ 
+#include <product_config.h>
+#include <ptable_com.h>
+#include <soc_memmap.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+#define CONFIG_G_POWER_OPTIMIZE 
+#define BBE_TCM_ADDR (HI_BBE16DMEM_BASE_ADDR)
+#define BBE_TCM_SIZE (0x00100000)
+#define LPHY_BBE16_PUB_DTCM_LOAD_ADDR (LPHY_PUB_DTCM_BASE)
+#define LPHY_BBE16_PUB_DTCM_LOAD_SIZE (LPHY_PUB_DTCM_SIZE)
+#define LPHY_BBE16_MOD_DTCM_LOAD_ADDR (LPHY_PRV_DTCM_BASE)
+#define LPHY_BBE16_MOD_DTCM_LOAD_SIZE (LPHY_PRV_DTCM_SIZE)
+#define LPHY_BBE16_PUB_ITCM_LOAD_ADDR (LPHY_PUB_ITCM_BASE)
+#define LPHY_BBE16_PUB_ITCM_LOAD_SIZE (LPHY_PUB_ITCM_SIZE)
+#define LPHY_BBE16_MOD_ITCM_LOAD_ADDR (LPHY_PRV_ITCM_BASE)
+#define LPHY_BBE16_MOD_ITCM_LOAD_SIZE (LPHY_PRV_ITCM_SIZE)
+#define HIFI_TCM_ADDR (0xFFFFFFFF)
+#define HIFI_TCM_SIZE (0xFFFFFFFF)
+#ifdef __cplusplus
+}
+#endif
+#endif

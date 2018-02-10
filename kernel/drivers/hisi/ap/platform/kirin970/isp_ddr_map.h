@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+#ifndef __ISP_DDR_MAP_H__
+#define __ISP_DDR_MAP_H__ 
+
+#include <global_ddr_map.h>
+
+#ifdef __cplusplus
+#if __cplusplus
+extern "C" {
+#endif
+#endif
+
+#define MEM_SEC_BOOT_SIZE (0x00D00000)
+#define MEM_SEC_HEAP_SIZE (0x01800000)
+
+#define MEM_SMMU_ERRRD_ADDR_OFFSET (0x0000F000)
+#define MEM_SMMU_ERRWR_ADDR_OFFSET (0x0000F800)
+#define MEM_BOOT_ADDR_OFFSET (0x00010000)
+#define MEM_OS_TEXT_ADDR_OFFSET (0x00018000)
+#define MEM_PGD_ADDR_OFFSET (0x00000000)
+#define MEM_PMD_ADDR_OFFSET (0x00002000)
+#define MEM_PTE_ADDR_OFFSET (0x00910000)
+#define MEM_PGD_SIZE (0x2000)
+#define MEM_PMD_SIZE (0x2000)
+#define MEM_PTE_SIZE (0x200000)
+
+#define MEM_RSCTABLE_ADDR_OFFSET (0x00014000)
+#define MEM_RSCTABLE_SIZE (0x00004000)
+#define MEM_ISPFW_SIZE (0x00800000)
+#define MEM_ISPDTS_SIZE (0x02000000)
+
+#define MEM_MDC_DA (0xC0900000)
+#define MEM_MDC_SIZE (0x00100000)
+
+#define SHAREDMEM_BASE (0xc2000000)
+#define VQ_BASE (0xc2020000)
+#define DEVICE_BASE (0xE0000000)
+#define TEXT_BASE (0xc0000000)
+#define DATA_BASE (0xc0300000)
+#define ITCM_BASE (0xFFFF0000)
+#define DTCM_BASE (0xE85D0000)
+#define ISP_CORE_CFG_BASE_ADDR (0xE8400000)
+#define ISP_PMC_BASE_ADDR (0xFFF31000)
+#define MAX_REGION_NUM (24)
+#define STATIC_REGION_NSEC_NUM (14)
+#define STATIC_REGION_SEC_NUM (16)
+
+#ifdef __cplusplus
+#if __cplusplus
+}
+#endif
+#endif
+
+#endif

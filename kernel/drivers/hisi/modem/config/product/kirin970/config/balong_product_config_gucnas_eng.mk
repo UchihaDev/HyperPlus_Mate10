@@ -1,0 +1,3 @@
+# MD5: 0f9ab93835ece33fbc9b578f7533c9c9
+CFG_FEATURE_AT_NV_WRITE_SUPPORT                 := YES
+CFG_FEATURE_READ_LOG_FILTER_CFG                 := YES

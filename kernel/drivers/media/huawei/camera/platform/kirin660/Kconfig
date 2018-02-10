@@ -1,0 +1,17 @@
+comment "Huawei Sensor kirin660"
+
+source "drivers/media/huawei/camera/sensor/vcm/Kconfig"
+source "drivers/media/huawei/camera/sensor/flash/Kconfig"
+source "drivers/media/huawei/camera/sensor/ois/Kconfig"
+
+
+config HUAWEI_CAMERA_USE_OV8865
+	bool "ov8865"
+    default y
+	depends on HUAWEI_CAMERA
+
+config HUAWEI_CAMERA_USE_IMX286HYBIRD
+	bool "imx286hybird"
+    default y
+	depends on HUAWEI_CAMERA
+

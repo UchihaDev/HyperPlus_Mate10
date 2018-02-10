@@ -1,0 +1,16 @@
+
+/**
+ * Copyright (C) 2014 Hisilicon Ltd.
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/include/ "kirin970_fpga_config.dtsi"
+
+/ {
+	hisi,boardid = <6 0 9 7>;
+	hisi,boardname = "kirin970_fpga_020";
+	hisi,gpu_arch = "mimir";
+};

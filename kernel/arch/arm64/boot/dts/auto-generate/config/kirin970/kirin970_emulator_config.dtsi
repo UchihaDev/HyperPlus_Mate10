@@ -1,0 +1,1169 @@
+/**
+ * Copyright (C) 2014 Hisilicon Ltd.
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/include/ "kirin970_emulator_pin.dtsi"
+/include/ "kirin970_emulator_sec_pin.dtsi"
+/include/ "kirin970_cci.dtsi"
+/include/ "kirin970_gic.dtsi"
+/include/ "kirin970_timer.dtsi"
+/include/ "kirin970_clock.dtsi"
+/include/ "kirin970_peri_dvfs_volt.dtsi"
+/include/ "kirin970_peri_dvfs.dtsi"
+/include/ "kirin970_isp.dtsi"
+/include/ "kirin970_powerip.dtsi"
+/include/ "hisi_freq_autodown_es.dtsi"
+/include/ "kirin970.dtsi"
+/include/ "kirin970_lowpm_es.dtsi"
+/include/ "kirin970_gpu_es.dtsi"
+/include/ "kirin970_i2c.dtsi"
+/include/ "kirin970_gpio_es.dtsi"
+/include/ "kirin970_pinctrl_es.dtsi"
+/include/ "hisi_64xx_codec.dtsi"
+/include/ "kirin970_emulator_hi6402_pin.dtsi"
+/include/ "kirin970_thermal_es.dtsi"
+/include/ "kirin970_fpga_touchscreen.dtsi"
+/include/ "kirin970_framebuffer.dtsi"
+/include/ "kirin970_noc_es.dtsi"
+/include/ "kirin970_dma.dtsi"
+/include/ "kirin970_trustedcore_es.dtsi"
+/include/ "kirin970_venc_es.dtsi"
+/include/ "kirin970_vdec_es.dtsi"
+/include/ "kirin970_perfstat_es.dtsi"
+
+/ {
+	#address-cells = <2>;
+	#size-cells = <2>;
+	model = "kirin970";
+	compatible = "hisilicon,kirin970";
+	interrupt-parent = <&gic>;
+	hisi,boardid = <6 0 9 9>;
+	hisi,boardname = "kirin970_emulator";
+	hisi,modem_id = <0x39F5FC00>;
+	hisi,product_id = <0x39F5FC99>;
+	hisi,gpu_arch = "mimir";
+
+	chosen{};
+
+	cpus {
+		#address-cells = <2>;
+		#size-cells = <0>;
+
+		little0: cpu@0 {
+		        device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x0>;
+			enable-method = "psci";
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points = <
+				533000	700000
+				999000	800000
+				1402000	900000
+				1709000	1000000
+				1844000	1100000
+			>;
+		};
+		little1:cpu@1 {
+		        device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x1>;
+			enable-method = "psci";
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points = <
+				533000	700000
+				999000	800000
+				1402000	900000
+				1709000	1000000
+				1844000	1100000
+			>;
+		};
+		little2:cpu@2 {
+		        device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x2>;
+			enable-method = "psci";
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points = <
+				533000	700000
+				999000	800000
+				1402000	900000
+				1709000	1000000
+				1844000	1100000
+			>;
+		};
+		little3:cpu@3 {
+		        device_type = "cpu";
+			compatible = "arm,cortex-a53", "arm,armv8";
+			reg = <0x0 0x3>;
+			enable-method = "psci";
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			operating-points = <
+				533000	700000
+				999000	800000
+				1402000	900000
+				1709000	1000000
+				1844000	1100000
+			>;
+		};
+		big0:cpu@100 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a5x", "arm,armv8";
+			reg = <0x0 0x100>;
+			enable-method = "psci";
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_NAP_0 &CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			operating-points = <
+				1018000	700000
+				1517000	800000
+				1959000	900000
+				2208000	1000000
+				2458000	1100000
+				2727000	1100000
+			>;
+		};
+		big1:cpu@101 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a5x", "arm,armv8";
+			reg = <0x0 0x101>;
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_NAP_0 &CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			enable-method = "psci";
+			operating-points = <
+				1018000	700000
+				1517000	800000
+				1959000	900000
+				2208000	1000000
+				2458000	1100000
+				2727000	1100000
+			>;
+		};
+		big2:cpu@102 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a5x", "arm,armv8";
+			reg = <0x0 0x102>;
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_NAP_0 &CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			enable-method = "psci";
+			operating-points = <
+				1018000	700000
+				1517000	800000
+				1959000	900000
+				2208000	1000000
+				2458000	1100000
+				2727000	1100000
+			>;
+		};
+		big3:cpu@103 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a5x", "arm,armv8";
+			reg = <0x0 0x103>;
+			 clock-frequency = <0>;
+			clock-latency = <0>;
+			cpu-idle-states = <&CPU_NAP_0 &CPU_SLEEP_0 &CLUSTER_SLEEP_1>;
+			enable-method = "psci";
+			operating-points = <
+				1018000	700000
+				1517000	800000
+				1959000	900000
+				2208000	1000000
+				2458000	1100000
+				2727000	1100000
+			>;
+		};
+
+		idle-states {
+			entry-method = "arm,psci";
+
+			CPU_NAP_0: cpu-nap-0 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x0000000>;
+				entry-latency-us = <2>;
+				exit-latency-us = <1>;
+				min-residency-us = <5>;
+			};
+
+			CPU_SLEEP_0: cpu-sleep-0 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x0010000>;
+				entry-latency-us = <40>;
+				exit-latency-us = <70>;
+				min-residency-us = <3000>;
+				local-timer-stop;
+			};
+
+			CLUSTER_SLEEP_0: cluster-sleep-0 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x1010000>;
+				entry-latency-us = <500>;
+				exit-latency-us = <5000>;
+				min-residency-us = <20000>;
+				local-timer-stop;
+			};
+			CLUSTER_SLEEP_1: cluster-sleep-1 {
+				compatible = "arm,idle-state";
+				arm,psci-suspend-param = <0x1010000>;
+				entry-latency-us = <1000>;
+				exit-latency-us = <5000>;
+				min-residency-us = <20000>;
+				local-timer-stop;
+			};
+		};
+		cpu-map {
+			cluster0: cluster0 {
+				#cooling-cells = <2>; /* min followed by max */
+				core0 {
+					cpu = <&little0>;
+				};
+				core1 {
+					cpu = <&little1>;
+				};
+				core2 {
+					cpu = <&little2>;
+				};
+				core3 {
+					cpu = <&little3>;
+				};
+			};
+			cluster1: cluster1 {
+				#cooling-cells = <2>; /* min followed by max */
+				core0 {
+					cpu = <&big0>;
+				};
+				core1 {
+					cpu = <&big1>;
+				};
+				core2 {
+					cpu = <&big2>;
+				};
+				core3 {
+					cpu = <&big3>;
+				};
+			};
+		};
+	};
+
+	hisi,ion {
+		heap_sec_drm@20 {
+			status = "disabled";
+		};
+	};
+	target-cpu {
+		compatible = "hisi,targetcpu";
+		target_cpu = "Kirin 965";
+	};
+
+	support-target {
+		compatible = "hisi,supportedtarget";
+		support_name = "Kirin 960","Kirin 965";
+		support_value = <2458000>, <2727000>;
+		support_efuse = "false";
+	};
+
+        psci {
+                compatible      = "arm,psci";
+                method          = "smc";
+                cpu_suspend     = <0xc4000001>;
+                cpu_off         = <0x84000002>;
+                cpu_on          = <0xc4000003>;
+                system_off      = <0x84000008>;
+                system_reset    = <0x84000009>;
+        };
+
+	memory@0 {
+		device_type = "memory";
+		reg = <0x0 0x00400000 0x0 0x5fc00000 0x0 0x80000000 0x0 0x60000000>;
+		status = "ok";
+	};
+
+	reserved-memory {
+		fama_3_hole_1 {
+			status = "ok";
+		};
+
+		fama_3_hole_2 {
+			status = "ok";
+		};
+	};
+
+	cma-memory {
+		fama_3_cma {
+			status = "ok";
+		};
+	};
+
+	/* cpufreq  device */
+	cpufreq: cpufreq-bL {
+		compatible = "arm,generic-bL-cpufreq";
+		status = "ok";
+	};
+
+	spmi: spmi@FFF24000 {
+		pmic:pmic@0 {
+			gpios = <&gpio28 0 0>;
+			hisilicon,pmic_fpga_flag=<1>;
+		};
+	};
+	fastboot {
+		compatible = "hisilicon,fastboot";
+		i2c3-pin = <0>;
+		uart-board-type = <0>;
+		/*UDP_TYPE 0,PRODUCT 1,FPGA 2,EMU 3*/
+		lpm3-board-type = <3>;
+		jtagtosd-board-type = <3>;
+
+		i2c-select = <1>;
+		i2c-sel0-gpio = <44>;
+		i2c-sel1-gpio = <45>;
+		i2c-sel0-val = <0>;
+		i2c-sel1-val = <0>;
+	};
+
+	pmu: pmu@FFF34000 {
+		compatible = "hisilicon,pmu";
+		reg = <0x00 0xFFF34000 0x00 0x1000>;
+		status = "disabled";
+	};
+
+	lowpm_test {
+		compatible = "hisilicon,lowpm_test";
+		sr_plat_flag = <1>;
+		reg = <0x0 0xfff32000 0x0 0x1000>;
+		status = "ok";
+	};
+	hisi_ipc: ipc@e896b000 {
+		status = "ok";
+	};
+	hisi_ao_ipc: ipc@0xFFF22000 {
+		status = "ok";
+	};
+
+        hisi_sysctrl: sysctrl@fff0a000 {
+                compatible = "hisilicon,sysctrl";
+                reg = <0x0 0xfff0a000 0x0 0x1000>;
+                status = "ok";
+        };
+
+        hisi_pctrl: pctrl@e8a09000 {
+                compatible = "hisilicon,pctrl";
+                reg = <0x0 0xe8a09000 0x0 0x1000>;
+                status = "ok";
+        };
+
+        hisi_crgctrl: crgctrl@fff35000 {
+                compatible = "hisilicon,crgctrl";
+                reg = <0x0 0xfff35000 0x0 0x1000>;
+                status = "ok";
+        };
+
+	hisi_iomcuctrl: crgctrl@0xFFD7e000 {
+                compatible = "hisilicon,iomcuctrl";
+                reg = <0x0 0xFFD7e000 0x0 0x1000>;
+                status = "ok";
+        };
+
+        hisi_pmctrl: pmctrl@fff31000 {
+                compatible = "hisilicon,pmctrl";
+                reg = <0x0 0xfff31000 0x0 0x1000>;
+                status = "ok";
+        };
+
+	hisi_mediactrl: mediactrl@E8820000 {
+		compatible = "hisilicon,mediactrl";
+		reg = <0x0 0xe8820000 0x0 0x1000>;
+		status = "ok";
+	};
+	hisi_axierr {
+	        compatible = "hisi,hi3xxx-axi";
+	        interrupts = <0 23 4>, <0 1 4>;
+	        status = "ok";
+        };
+
+    hisi_reset {
+            compatible = "hisilicon,hi3xxx-reset";
+            status = "ok";
+        };
+
+	peripherals {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges = <0x0 0x00000000 0x0 0xffffffff>;
+
+		clk6250khz: clk6250khz {
+			compatible = "fixed-clock";
+			#clock-cells = <0>;
+			clock-frequency = <6297600>;
+			clock-output-names = "clk6250khz";
+		};
+/*
+		clk4800khz: clk4800khz {
+			compatible = "fixed-clock";
+			#clock-cells = <0>;
+			clock-frequency = <32768>;
+			clock-output-names = "clk4800khz";
+		};
+*/
+
+		dma0: dma@fdf30000 {
+			status = "disabled";
+		};
+
+		iomcu_dma: dma@ffd77000 {
+			status = "disabled";
+		};
+
+	};
+	nve_uartctl:uartctl {
+		compatible = "hisilicon,hisi-uartctl";
+		uartctl = "0001000F060F0F0F0F0F0F0F";
+	};
+	amba {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		compatible = "arm,amba-bus";
+		interrupt-parent = <&gic>;
+		ranges;
+
+		/*rtc0: rtc@FFF04000 {
+				compatible = "arm,rtc-pl031", "arm,primecell";
+				reg = <0xfff04000 0x1000>;
+				interrupts = <0 46 0x4>;
+				clocks = <&pclk>;
+				clock-names = "apb_pclk";
+				status = "ok";
+		};*/
+
+		/*rtc1: rtc@FFF05000 {
+				compatible = "arm,rtc-pl031", "arm,primecell";
+				reg = <0xfff05000 0x1000>;
+				interrupts = <0 47 0x4>;
+				clocks = <&pclk>;
+				clock-names = "apb_pclk";
+				status = "ok";
+		};*/
+
+		watchdog0 {
+			compatible = "arm,sp805", "arm,primecell";
+			reg = <0x0 0xe8a06000 0x0 0x1000>;
+			default-timeout = <24>;
+			interrupts = <0 44 4>;
+			clocks = <&pclk_gate_wd0 &pclk>;
+			clock-names = "pclk_wd0", "apb_pclk";
+			status = "disabled";
+		};
+
+		/*wdt1@e8a07000 {
+			compatible = "arm,sp805", "arm,primecell";
+			reg = <0x0 0xe8a07000 0x0 0x1000>;
+			interrupts = <0 45 4>;
+			clocks = <&pclk_gate_wd0 &pclk>;
+			clock-names = "pclk_wd0", "apb_pclk";
+		};*/
+
+		serial0: uart@fdf02000 {
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			status = "ok";
+		};
+
+		serial1: uart@fdf00000 {
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			status = "disabled";
+			reset-enable-flag = <1>;
+		};
+
+		serial2: uart@fdf03000 {
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			status = "disabled";
+			reset-enable-flag = <1>;
+		};
+
+		serial3: uart@ffd74000 {
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			status = "disabled";
+			reset-enable-flag = <0>;
+		};
+
+		serial4: uart@fdf01000 {
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			status = "disabled";
+			reset-enable-flag = <1>;
+		};
+
+		serial5: uart@fdf05000 {
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			status = "disabled";
+			reset-enable-flag = <1>;
+		};
+
+		serial6: uart@fff32000 {
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			status = "disabled";
+		};
+
+		dx_cc63p: dx_cc63p@fdf0e000 {
+			compatible = "dx,cc63p";
+			reg = <0x0 0xfdf0e000 0x0 0x1000>;
+			interrupt-parent = <&gic>;
+			interrupts = <0 135 4>;
+			status = "ok";
+		};
+
+		spi0: spi@ffd70000 {
+			status = "disabled";
+			clock-rate = <0 128000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio044_pmx_func &gpio045_pmx_func &gpio046_pmx_func &gpio044_cfg_func &gpio045_cfg_func
+					&gpio046_cfg_func>;
+			pinctrl-1 = <&gpio044_pmx_idle &gpio045_pmx_idle &gpio046_pmx_idle &gpio044_cfg_idle &gpio045_cfg_idle
+					&gpio046_cfg_idle>;
+			spi_dev0: spi_dev0@0 {
+					compatible = "spi_dev0";
+					spi-max-frequency = <100000>;
+					reg = <0>;
+					pl022,com-mode = <0>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+
+			spi_dev1: spi_dev1@1 {
+					compatible = "spi_dev1";
+					spi-max-frequency = <13000000>;
+					reg = <1>;
+					pl022,com-mode = <1>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+
+			spi_dev2: spi_dev2@2 {
+					compatible = "spi_dev2";
+					spi-max-frequency = <13000000>;
+					reg = <2>;
+					pl022,com-mode = <2>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+
+			spi_dev3: spi_dev3@3 {
+					compatible = "spi_dev3";
+					spi-max-frequency = <13000000>;
+					reg = <3>;
+					pl022,com-mode = <0>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+		};
+
+		spi1: spi@fdf08000 {
+			/* secure */
+			status = "disabled";
+			clock-rate = <0 46000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			spi_dev10: spi_dev10@10 {
+					compatible = "spi_dev10";
+					spi-max-frequency = <100000>;
+					reg = <0>;
+					pl022,com-mode = <0>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+		};
+		spi2: spi@ffd68000 {
+			/* secure */
+			status = "disabled";
+			clock-rate = <0 128000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			spi_dev20: spi_dev20@20 {
+					compatible = "spi_dev20";
+					spi-max-frequency = <5000000>;
+					reg = <0>;
+					pl022,com-mode = <2>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+		};
+
+		spi3: spi@fff2a000 {
+			status = "disabled";
+			clock-rate = <0 80000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio146_cfg_func &gpio147_cfg_func &gpio148_cfg_func>;
+			pinctrl-1 = <&gpio146_cfg_idle &gpio147_cfg_idle &gpio148_cfg_idle>;
+			spi_dev30: spi_dev30@30 {
+					compatible = "spi_dev30";
+					spi-max-frequency = <100000>;
+					reg = <0>;
+					pl022,com-mode = <2>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+
+			spi_dev31: spi_dev31@31 {
+					compatible = "spi_dev31";
+					spi-max-frequency = <13000000>;
+					reg = <1>;
+					pl022,com-mode = <1>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+
+			spi_dev32: spi_dev32@32 {
+					compatible = "spi_dev32";
+					spi-max-frequency = <13000000>;
+					reg = <2>;
+					pl022,com-mode = <2>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+
+			spi_dev33: spi_dev33@33 {
+					compatible = "spi_dev33";
+					spi-max-frequency = <13000000>;
+					reg = <3>;
+					pl022,com-mode = <0>;
+					pl022,interface = <0>;
+					pl022,rx-level-trig = <3>;
+					pl022,tx-level-trig = <3>;
+					pl022,ctrl-len = <7>;
+					pl022,wait-state = <0>;
+					pl022,duplex = <0>;
+					pl022,slave-tx-disable = <0>;
+			};
+		};
+		/* I2C0 ~ I2C4 */
+		/* I2C0 ~ I2C */
+		i2c0: i2c@FFD71000 {
+			status = "disabled";
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <>;
+			pinctrl-1 = <>;
+			//cs-gpios = <>, <>;
+		};
+
+		i2c1: i2c@FFD72000 {
+			status = "disabled";
+			clock-rate = <0 32000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio188_pmx_func &gpio189_pmx_func &gpio188_cfg_func &gpio189_cfg_func>;
+			pinctrl-1 = <&gpio188_pmx_idle &gpio189_pmx_idle &gpio188_cfg_idle &gpio189_cfg_idle>;
+			cs-gpios = <&gpio23 4 0>, <&gpio23 5 0>;
+		};
+
+		i2c2: i2c@FFD73000 {
+			status = "disabled";
+			clock-rate = <0 32000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio190_pmx_func &gpio191_pmx_func &gpio190_cfg_func &gpio191_cfg_func>;
+			pinctrl-1 = <&gpio190_pmx_idle &gpio191_pmx_idle &gpio190_cfg_idle &gpio191_cfg_idle>;
+			cs-gpios = <&gpio23 6 0>, <&gpio23 7 0>;
+		};
+
+		i2c3: i2c@FDF0C000 {
+			status = "disabled";
+			clock-rate = <0 107000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio006_pmx_func &gpio007_pmx_func &gpio006_cfg_func &gpio007_cfg_func>;
+			pinctrl-1 = <&gpio006_pmx_idle &gpio007_pmx_idle &gpio006_cfg_idle &gpio007_cfg_idle>;
+			cs-gpios = <&gpio0 6 0>, <&gpio0 7 0>;
+		};
+
+		i2c4: i2c@FDF0D000 {
+			status = "ok";
+			clock-rate = <0 107000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio026_pmx_func &gpio027_pmx_func &gpio026_cfg_func &gpio027_cfg_func>;
+			pinctrl-1 = <&gpio026_pmx_idle &gpio027_pmx_idle &gpio026_cfg_idle &gpio027_cfg_idle>;
+			cs-gpios = <&gpio3 2 0>, <&gpio3 3 0>;
+		};
+
+		i2c6: i2c@FFD6A000 {
+			status = "ok";
+			clock-rate = <0 32000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio199_pmx_func &gpio198_pmx_func &gpio199_cfg_func &gpio198_cfg_func>;
+			pinctrl-1 = <&gpio199_pmx_idle &gpio198_pmx_idle &gpio199_cfg_idle &gpio198_cfg_idle>;
+			cs-gpios = <&gpio24 7 0>, <&gpio24 6 0>;
+		};
+
+		i2c7: i2c@FDF0B000 {
+			status = "ok";
+			clock-rate = <0 107000000>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio190_pmx_func &gpio191_pmx_func &gpio190_cfg_func &gpio191_cfg_func>;
+			pinctrl-1 = <&gpio190_pmx_idle &gpio191_pmx_idle &gpio190_cfg_idle &gpio191_cfg_idle>;
+			cs-gpios = <&gpio23 6 0>, <&gpio23 7 0>;
+		};
+	};
+	/* end amba */
+
+	kirin_pcie_rc@0xf4000000 {
+		board_type = <1>;
+		wl_power = <63>;
+		iatu_base_offset = <0x900>;
+		status = "disabled";
+	};
+
+	kirin_pcie_rc@0xf8000000 {
+		board_type = <1>;
+		wl_power = <63>;
+		iatu_base_offset = <0x900>;
+		status = "disabled";
+	};
+
+	kirin_pcie_ep@0xf4000000 {
+		board_type = <1>;
+		iatu_base_offset = <0x900>;
+	};
+
+	kirin_pcie_ep@0xf8000000 {
+		board_type = <1>;
+		iatu_base_offset = <0x900>;
+	};
+
+	/* display start */
+	framebuffer@E8600000 {
+		fpga_flag = <0>;
+	};
+
+	panel_pwm {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		compatible = "hisilicon,hisipwm";
+		reg = <0 0xE8A04000 0 0x1000>;
+		clocks = <&clk_gate_pwm>;
+		clock-names = "clk_pwm";
+		//pinctrl-names = "default","idle";
+		//pinctrl-0 = <&gpio182_pmx_func &gpio182_cfg_func>;
+		//pinctrl-1 = <&gpio182_pmx_idle &gpio182_cfg_idle>;
+		fpga_flag = <0>;
+		status = "disabled";
+	};
+
+	panel_blpwm {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		compatible = "hisilicon,hisiblpwm";
+		reg = <0 0xFFD75000 0 0x1000>;
+		clocks = <&clk_gate_blpwm>;
+		clock-names = "clk_blpwm";
+		pinctrl-names = "default","idle";
+		pinctrl-0 = <&gpio181_pmx_func &gpio182_pmx_func &gpio181_cfg_func &gpio182_cfg_func>;
+		pinctrl-1 = <&gpio181_pmx_idle &gpio182_pmx_idle &gpio181_cfg_idle &gpio182_cfg_idle>;
+		fpga_flag = <0>;
+		status = "ok";
+	};
+
+	panel_lcdc_fake {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		compatible = "hisilicon,lcdc_fake_panel";
+		fpga_flag = <0>;
+		status = "disabled";
+	};
+
+	panel_mipi_fake {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		compatible = "hisilicon,mipi_fake_panel";
+		//gpio_lcd_n5v5_enable, gpio_lcd_bl_enable, gpio_lcd_p5v5_enable
+		gpios = <&gpio4 5 0>, <&gpio11 0 0>, <&gpio15 5 0>;
+		gpio_nums = <37 88 125>;
+		fpga_flag = <0>;
+		status = "ok";
+	};
+
+	panel_hdmi_fake {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		compatible = "hisilicon,hdmi_fake_panel";
+		fake_hdmi = <1>;
+		status = "ok";
+	};
+	/* display end */
+
+	/* audio device beg */
+	codec_controller: codec_controller@e82b9000 {
+		gpios = <&gpio26 1 0>; /* GPIO_209 */
+		gpio_reset = <31>; /* GPIO_031*/
+		gpio_codec_ssi = <203>;
+		gpio_codec_ssi_func = <1>;
+		status = "ok";
+
+		hi64xx_irq: hi64xx_irq@0 {
+			status = "ok";
+
+			hi6403_codec: hi6403_codec@0{
+				hisilicon,mic_num = <2>;
+				status = "ok";
+			};
+		};
+	};
+
+	sound_hi6403 {
+		compatible = "hisilicon,hi3xxx-hi6403";
+		status = "ok";
+	};
+
+	hi6210_hifi {
+		compatible = "hi6210-hifi";
+		status = "ok";
+	};
+
+	asp_irq: asp_irq@E804E000{
+		compatible = "hisilicon,hi3630-asp-irq";
+		reg = <0x0 0xe804e000 0x0 0xa000>;
+		#interrupt-cells = <0x2>;
+		asp-irq-supply = <&asp>;
+		interrupt-controller;
+		interrupts = <0x0 0x88 0x4>;
+		interrupt-names = "asp_irq";
+		status = "disabled";
+
+		asp_common@0 {
+			compatible = "hisilicon,hi3630-asp-common";
+		};
+
+		asp_srcup_normal@0 {
+			compatible = "hisilicon,hi3630-srcup-normal";
+			asp-srcup-normal-supply = <&asp>;
+			interrupt-parent = <&asp_irq>;
+			interrupts = <0x1 0x0>;
+			interrupt-names = "asp_srcup_normal";
+		};
+
+		asp_srcup_dsp@0 {
+			compatible = "hisilicon,hi3630-srcup-dsp";
+		};
+
+		asp_srcdown@0 {
+			compatible = "hisilicon,hi3630-srcdown";
+			interrupt-parent = <&asp_irq>;
+		};
+
+		asp_hdmi@0 {
+			compatible = "hisilicon,hi3630-pcm-hdmi";
+			interrupt-parent = <&asp_irq>;
+			interrupts = <0x0 0x0>;
+			interrupt-names = "asp_irq_hdmi";
+		};
+	};
+	codecssi@0xe82b9000 {
+		compatible = "hisilicon,codecssi";
+		reg = <0x0 0xe82b9000 0x0 0x800>;
+		/* ssi pinctrl */
+		pinctrl-names = "default", "idle";
+		pinctrl-0 = <&gpio203_cfg_func &gpio203_pmx_func>;
+		pinctrl-1 = <&gpio203_cfg_idle &gpio203_pmx_idle>;
+		status = "disabled";
+	};
+	slimbusmisc@0xe8050000 {
+		compatible = "candance,slimbus";
+		reg = <0x0 0xe8050000 0x0 0xb00>,
+			<0x0 0xe804e000 0x0 0xa000>,
+			<0x0 0xfff0a000 0x0 0x1000>;
+		interrupts = <0x0 0x96 0x4>;
+		interrupt-names = "asp_irq_slimbus";
+		slimbus-reg-supply = <&asp>;
+		pinctrl-names = "default", "idle";
+		pinctrl-0 = <&gpio192_pmx_func
+				&gpio193_pmx_func
+				&gpio192_cfg_func
+				&gpio193_cfg_func>;
+		pinctrl-1 = <&gpio192_pmx_idle
+				&gpio193_pmx_idle
+				&gpio192_cfg_idle
+				&gpio193_cfg_idle>;
+		asp_power_state_offset = <0x06c>;
+		slimbusclk_offset = <0x038>;
+		slimbusdata_offset = <0x03c>;
+		slimbusclk_cfg_offset = <0x86C>;
+		slimbusdata_cfg_offset = <0x870>;
+		platform-type   = "UDP";
+		codec-type = "slimbus-6403cs";
+		clk_asp_subsys = <533000>;
+		switch_framer_disable;
+		status = "disabled";
+	};
+	slimbus_dai@0 {
+		compatible = "hisilicon,slimbus-dai";
+		status = "ok";
+	};
+
+	sio@E804F000 {
+		compatible = "hisilicon,hi3630-sio";
+		reg = <0x0 0xE804F000 0x0 0x400>;
+		sio-audio-supply = <&asp>;
+		/* wbd
+		pinctrl-names = "default", "idle";
+		pinctrl-0 = <&gpio183_pmx_func
+				    &gpio184_pmx_func
+				    &gpio185_pmx_func
+				    &gpio186_pmx_func
+				    &gpio183_cfg_func
+				    &gpio184_cfg_func
+				    &gpio185_cfg_func
+				     &gpio186_cfg_func>;
+		pinctrl-1 = <&gpio183_pmx_idle
+				    &gpio184_pmx_idle
+				    &gpio185_pmx_idle
+				    &gpio186_pmx_idle
+				    &gpio183_cfg_idle
+				    &gpio184_cfg_idle
+				    &gpio185_cfg_idle
+				    &gpio186_cfg_idle>;
+		*/
+		status = "disabled";
+	};
+
+	sio@E804F400 {
+		compatible = "hisilicon,hi3630-sio";
+		reg = <0x0 0xE804F400 0x0 0x400>;
+		sio-voice-supply = <&asp>;
+		/* wbd
+		pinctrl-names = "default", "idle";
+		pinctrl-0 = <&gpio043_pmx_func
+				     &gpio044_pmx_func
+				     &gpio045_pmx_func
+				     &gpio046_pmx_func
+				     &gpio043_cfg_func
+				     &gpio044_cfg_func
+				     &gpio045_cfg_func
+				     &gpio046_cfg_func>;
+			pinctrl-1 = <&gpio043_pmx_idle
+				     &gpio044_pmx_idle
+				     &gpio045_pmx_idle
+				     &gpio046_pmx_idle
+				     &gpio043_cfg_idle
+				     &gpio044_cfg_idle
+				     &gpio045_cfg_idle
+				     &gpio046_cfg_idle>;
+		*/
+		status = "disabled";
+	};
+
+	sio@E804F800 {
+		compatible = "hisilicon,hi3630-sio";
+		reg = <0x0 0xE804F800 0x0 0x400>;
+		status = "disabled";
+	};
+
+	sio@E804FC00 {
+		compatible = "hisilicon,hi3630-sio";
+		reg = <0x0 0xE804FC00 0x0 0x400>;
+		status = "disabled";
+	};
+
+	soundtrigger@E804B000 {
+		compatible = "hisilicon,soundtrigger_dma_drv";
+		reg = <0x0 0xe804b000 0x0 0x1000>;
+		asp-dmac-supply = <&asp>;
+		status = "ok";
+	};
+
+	hi64xx_asp_dmac@E804B000 {
+		compatible = "hisilicon,hi64xx-asp-dma";
+		reg = <0x0 0xe804b000 0x0 0x1000>;
+		asp-dmac-supply = <&asp>;
+		interrupts = <0 216 4>;
+		interrupt-names = "asp_dma_irq";
+		status = "ok";
+	};
+
+	hifidsp {
+			compatible = "hisilicon,k3hifidsp";
+			status = "ok";
+			platform-type = "ASIC";
+	};
+
+	sochifi_watchdog {
+		compatible = "hisilicon,sochifi-watchdog";
+		interrupts = <0 213 4>;
+		status = "ok";
+	};
+
+	asp_dmac@E804B000 {
+		compatible = "hisilicon,hi3xxx-pcm-asp-dma";
+		reg = <0x0 0xe804b000 0x0 0x1000>;
+		asp-dmac-supply = <&asp>;
+		status = "ok";
+	};
+
+	audio_hw_config {
+		product_name = "kirin970FPGA";
+		spk_pa_name = "max98925";
+		cust_name = "audio_custom";
+		soc_name = "hi363x";
+		codec_name = "hi6403";
+		codec_dsp_algo = "maxim|mad";
+		modem_sio_master = "false";
+		ear_pa_name = "none";
+		status = "disabled";
+	};
+	/* audio device end */
+
+	/* eMMC0 4.5 */
+	dwmmc0: dwmmc0@FC183000 {
+		/*vmmc-supply=<&ldo15>;*/
+		/*caps2-mmc-hs400-1_8v;caps2-mmc-hs400-1_8v, caps2-mmc-hs200-1_8v, caps2-mmc-ddr50-1_8v*/
+		/*caps2-mmc-packed-command;*/
+		keep-power-in-suspend;
+		/*caps2-mmc-poweroff-notify;*/
+		/*caps2-mmc-enhanced_strobe-ctrl;*/
+		/*caps2-mmc-cache_flush_barrier-ctrl;*/
+		caps2-mmc-bkops_auto-ctrl;
+		/*caps2-mmc-cmd-queue;*/
+		status = "okay";
+	};
+
+	/* SD */
+	dwmmc1: dwmmc1@FF37F000 {
+		board-sd-voltage-switch-gpio = <&gpio3 5 0>;
+		board-mmc-bus-clk = <20000000>;
+		cd-vol = <0>;
+		cd-gpio = <&gpio0 0 0>;
+		status = "disabled";
+	};
+
+	/* wifi */
+	/*
+	dwmmc2: dwmmc2@FC183000 {
+		board-mmc-bus-clk = <20000000>;
+		status = "disabled";
+	};
+	*/
+
+	hisi_usb@ff200000 {
+		fpga_flag = <0>;
+		status = "disabled";
+	};
+	hisi_usb3phy:usb@fe100000 {
+        status = "disabled";
+    };
+
+	hisi_usb2phy:usb@fe000000 {
+        status = "disabled";
+    };
+
+	gpu: mali@E82C0000 {
+		status = "ok";
+	};
+
+	touchscreen {
+		bus_id = <7>;
+		status = "disabled";
+	};
+
+	huawei,hisi_isp110 {
+		hisi,is_fpga = <0>;
+	};
+
+	huawei,hisi_isp160 {
+		hisi,is_fpga = <0x0>;
+	};
+
+	hisi,hisi_camera {
+		hisi,is_fpga = <0>;
+	};
+
+	huawei,imx179 {
+		huawei,is_fpga = <0>;
+        gpios = <&gpio12 7 0 &gpio12 5 0 &gpio12 3 0 &gpio12 4 0 &gpio12 2 0 &gpio12 1 0 &gpio11 6 0 &gpio12 0 0 &gpio11 7 0 &gpio12 6 0>;
+        huawei,gpio-ctrl-types = "reset", "powerdown", "dphy_txrxz", "dphy_rstzcal", "cam_1v05_en", "cam_1v2_en", "cam_1v8_en", "cam_2v85_en", "cam_vcm_2v85_en", "cam_vcm_power";
+		status = "disabled";
+	};
+
+	huawei,imx214 {
+		huawei,is_fpga = <0>;
+		gpios = <&gpio11 3 0 &gpio11 1 0 &gpio10 7 0 &gpio11 0 0 &gpio10 6 0 &gpio10 5 0 &gpio10 2 0 &gpio10 4 0 &gpio10 3 0 &gpio11 2 0>;
+		huawei,gpio-ctrl-types = "reset", "powerdown", "dphy_txrxz", "dphy_rstzcal", "cam_1v05_en", "cam_1v2_en", "cam_1v8_en", "cam_2v85_en", "cam_vcm_2v85_en", "cam_vcm_power";
+		status = "disabled";
+	};
+
+	huawei,imx230 {
+		huawei,is_fpga = <0>;
+		gpios = <&gpio11 3 0 &gpio11 1 0 &gpio10 7 0 &gpio11 0 0 &gpio10 6 0 &gpio10 5 0 &gpio10 2 0 &gpio10 4 0 &gpio10 3 0 &gpio11 2 0>;
+		huawei,gpio-ctrl-types = "reset", "powerdown", "dphy_txrxz", "dphy_rstzcal", "cam_1v05_en", "cam_1v2_en", "cam_1v8_en", "cam_2v85_en", "cam_vcm_2v85_en", "cam_vcm_power";
+		status = "disabled";
+    };
+
+	huawei,imx278 {
+		huawei,is_fpga = <0>;
+		gpios = <&gpio11 3 0 &gpio11 1 0 &gpio10 7 0 &gpio11 0 0 &gpio10 6 0 &gpio10 5 0 &gpio10 2 0 &gpio10 4 0 &gpio10 3 0 &gpio11 2 0>;
+		huawei,gpio-ctrl-types = "reset", "powerdown", "dphy_txrxz", "dphy_rstzcal", "cam_1v05_en", "cam_1v2_en", "cam_1v8_en", "cam_2v85_en", "cam_vcm_2v85_en", "cam_vcm_power";
+		status = "disabled";
+    };
+
+  pmic@FFF34000 {
+		status = "disabled";
+	};
+};
