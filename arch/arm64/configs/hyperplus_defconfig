@@ -3,6 +3,9 @@
 # Linux/arm64 4.4.23 Kernel Configuration
 #
 
+# HyperPlus Kernel
+CONFIG_IOSCHED_ZEN=y
+
 CONFIG_ARM64=y
 CONFIG_64BIT=y
 CONFIG_ARCH_PHYS_ADDR_T_64BIT=y
