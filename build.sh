@@ -12,15 +12,15 @@ nocol='\033[0m'
 KERNEL_NAME="HyperPlus"
 VERSION="Mango"
 DATE=$(date +"%d-%m-%Y-%I-%M")
-DEVICE="BKL"
+DEVICE="Mate10"
 FINAL_ZIP=$KERNEL_NAME-$VERSION-$DATE-$DEVICE.zip
 
 # Dirs
 KERNEL_DIR=~/Desktop/view10
-OUT_DIR=~/Desktop/out_v10
+OUT_DIR=~/Desktop/out_m10
 UPLOAD_DIR=~/Desktop/Files/flash_zip
 ANYKERNEL_DIR=$KERNEL_DIR/AnyKernel2
-KERNEL_IMG=~/Desktop/out_v10/arch/arm64/boot/Image.gz
+KERNEL_IMG=~/Desktop/out_m10/arch/arm64/boot/Image.gz
 
 # Export
 export PATH=$PATH:~/Desktop/tools/toolchain/gcc-linaro-4.9.4/bin
@@ -31,11 +31,11 @@ function make_kernel() {
   echo -e "$cyan***********************************************"
   echo -e "          Initializing defconfig          "
   echo -e "***********************************************$nocol"
-  make ARCH=arm64 O=../out_v10 hyperplus_defconfig
+  make ARCH=arm64 O=../out_m10 hyperplus_defconfig
   echo -e "$cyan***********************************************"
   echo -e "             Building kernel          "
   echo -e "***********************************************$nocol"
-  make ARCH=arm64 O=../out_v10 -j8
+  make ARCH=arm64 O=../out_m10 -j8
   if ! [ -a $KERNEL_IMG ];
   then
     echo -e "$red Kernel Compilation failed! Fix the errors! $nocol"
@@ -95,7 +95,7 @@ case $ch in
      echo -e "          	Clean          "
      echo -e "***********************************************$nocol"
      make ARCH=arm64 distclean
-     rm -rf ../out_v10
+     rm -rf ../out_m10
      make_kernel ;;
 esac
 
