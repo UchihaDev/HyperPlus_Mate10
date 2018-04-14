@@ -49,7 +49,7 @@ cp $KERNEL_IMG $ANYKERNEL_DIR/kernel-Image.gz
 mkdir -p $UPLOAD_DIR
 cd $ANYKERNEL_DIR
 zip -r9 UPDATE-AnyKernel2.zip * -x README UPDATE-AnyKernel2.zip
-mv $ANYKERNEL_DIR/UPDATE-AnyKernel2.zip $UPLOAD_DIR/$FINAL_ZIP
+mv $ANYKERNEL_DIR/UPDATE-AnyKernel2.zip $UPLOAD_DIR/Mate10/$FINAL_ZIP
 }
 
 # Options
