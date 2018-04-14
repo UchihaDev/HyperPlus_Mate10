@@ -33,8 +33,8 @@ ui_print "  \/_/     \/_____/   \/_____/   \/_____/             ";
 ui_print " ";
 
 # shell variables
-block=/dev/block/platform/ff3c0000.ufs/by-name/ramdisk;
-is_slot_device=1;
+block=/dev/block/bootdevice/by-name/ramdisk;
+is_slot_device=auto;
 ramdisk_compression=auto;
 
 
@@ -51,7 +51,7 @@ write_boot;
 
 
 # shell variables
-block=/dev/block/platform/ff3c0000.ufs/by-name/kernel;
+block=/dev/block/bootdevice/by-name/kernel;
 ramdisk_compression=auto;
 
 # reset for kernel patching
