@@ -16,7 +16,7 @@ DEVICE="Mate10"
 FINAL_ZIP=$KERNEL_NAME-$VERSION-$DATE-$DEVICE.zip
 
 # Dirs
-KERNEL_DIR=~/Desktop/view10
+KERNEL_DIR=~/Desktop/kernels/Mate10
 OUT_DIR=~/Desktop/out_m10
 UPLOAD_DIR=~/Desktop/Files/flash_zip
 ANYKERNEL_DIR=$KERNEL_DIR/AnyKernel2
