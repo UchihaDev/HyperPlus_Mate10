@@ -17,10 +17,10 @@ FINAL_ZIP=$KERNEL_NAME-$VERSION-$DATE-$DEVICE.zip
 
 # Dirs
 KERNEL_DIR=~/Desktop/kernels/Mate10
-OUT_DIR=~/Desktop/out_m10
+OUT_DIR=~/Desktop/kernels/out_m10
 UPLOAD_DIR=~/Desktop/Files/flash_zip
 ANYKERNEL_DIR=$KERNEL_DIR/AnyKernel2
-KERNEL_IMG=~/Desktop/out_m10/arch/arm64/boot/Image.gz
+KERNEL_IMG=~/Desktop/kernels/out_m10/arch/arm64/boot/Image.gz
 
 # Export
 export PATH=$PATH:~/Desktop/tools/toolchain/gcc-linaro-4.9.4/bin
@@ -96,6 +96,7 @@ case $ch in
      echo -e "***********************************************$nocol"
      make ARCH=arm64 distclean
      rm -rf ../out_m10
+cp -r ~/Desktop/Files/Source_files/libperl.a drivers/huawei_platform/lcd/tools/localperl/lib/5.14.2/x86_64-linux-thread-multi/CORE/libperl.a
      make_kernel ;;
 esac
 
